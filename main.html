@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/bootstrap.css">
+    <link rel="stylesheet" href="static/main.css">
+    <link rel="shortcut icon" href="img/onion.ico" type="image/x-icon">
+    <title>Trello do Gabriel</title>
+</head>
+    
+    <body>
+        <!--menu de navegação-->
+        <nav class="navbar navbar-default navbar-static-top pb-1 pt-1" id="nav-header">
+            <div lass="nav-item">
+                <div id="homeIconDiv" class="navbar-brand">
+                    <img src="img/home.png" id="homeImg" alt="Home">
+                </div>
+            </div>
+            <div lass="nav-item">
+                <h1 class="ff_market">Trello do Gabriel</h1>
+            </div>
+            <div lass="nav-item">
+                <div class="btn-group dropleft">
+                    <button class=" btn-circle p-0 " data-toggle="dropdown" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                        <span class="spnRoundedButton"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item text-center" id="completeUserName" href="#"></a>
+                        <a class="dropdown-item text-center border-top" onclick="logout()" href="#">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <!--Linha principal da tela inicial. Aqui ficam todos os boards do usuario oganizados
+        em uma lista-->
+        <!--TODO: as divs dos boards criados não podem ter o mesmo id: "newBoard"-->
+    <div class="container mt-4 ">
+        <div class="container-fluid mh-100" id="mainDiv">
+            <ul class="row list-group list-group-horizontal px-3 w-100 m-0" id="fatherRow">
+                <li id="firstChild" class="col-12 col-sm-3 col-md-3 col-lg-2 col-xl-2 mb-3 ml-2 p-0">
+                    <div class="card border-light h-100 newBoard" onclick="return showAlert('divRegisterBoard')">
+                        <span id="spnNovoBoard" class="d-flex justify-content-center mt-3">
+                            <p>Criar novo board</p>
+                            <!-- <img src="img/plus.png" alt="" srcset=""> -->
+                        </span>
+                    </div>
+                </li>
+            </ul> 
+        </div>
+    </div>
+
+    <!--Form criar novo board-->
+    <div id="divRegisterBoard" class="h-100 w-100 m-0 p-0" onclick="closeAlert(this); closeBoardRegister();" >
+        <div class="row justify-content-center m-0" onclick="event.stopPropagation()">
+            <div id="boardGroupRegister" class="col-11 col-sm-6 col-md-6 col-lg-3 col-xl-3" >
+                <div class="flex-row-reverse m-2">
+                    <button onclick="return closeBoardRegister()" class="close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <form id="formCreateBoard" method="post">
+                    <div class="form-group mb-3">
+                        <input maxlength="30" required type="text" id="boardName" class="form-control "
+                            placeholder="Nome do Board" autofocus> 
+                    </div>
+                    <input type="submit" value="Criar" class="btn btn-primary" />
+                    <input type="hidden" id="colorButton">
+                </form>
+            </div>
+            
+            <!--Aqui ficam as nove opções de cores para o board do usuário-->
+                <table class="mt-auto mb-4  d-sm-inline d-flex">
+                    <tr class="h-1">
+                        <td><input id="1" style="background-color: #01BAEF"  class="btn m-1 btn-color" type="button" value=""> </td>
+                        <td><input id="2" style="background-color: #494ca2" class="btn m-1 btn-color" type="button" value=""></td>
+                        <td><input id="3" style="background-color: #AB2346" class="btn m-1 btn-color" type="button" value=""></td>
+                    </tr>
+                    <tr>
+                        <td><input id="4" style="background-color: #52de97" class="btn  m-1 btn-color" type="button" value=""> </td>
+                        <td><input id="5" style="background-color: #ffd739" class="btn m-1 btn-color" type="button" value=""></td>
+                        <td><input id="6" style="background-color: #a64942" class="btn m-1 btn-color" type="button" value=""></td>
+                    </tr>
+                    <tr>
+                        <td><input id="1" style="background-color: #f45905" class="btn  m-1 btn-color" type="button" value=""> </td>
+                        <td><input id="2" style="background-color: #f54291" class="btn m-1 btn-color" type="button" value=""></td>
+                        <td><input id="3" style="background-color: #5f6769" class="btn m-1 btn-color" type="button" value=""></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    <script src="src/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
